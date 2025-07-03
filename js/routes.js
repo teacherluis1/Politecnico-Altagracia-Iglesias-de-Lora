@@ -1,38 +1,30 @@
-const routes = {
-  '#portada': 'components/portada.html',
-  '#institucion': 'components/institucion.html',
-  '#vida-estudiantil': 'components/vida-estudiantil.html',
-  '#titulos': 'components/titulos.html',
-  '#contactos': 'components/contacto.html',
-  '#aula-virtual': 'components/aula-virtual.html',
-};
+const sectionComponents = [
+  'components/portada.html',
+  'components/institucion.html',
+  'components/vida-estudiantil.html',
+  'components/titulos.html',
+  'components/contacto.html',
+  'components/aula-virtual.html',
+];
 
-function loadComponent(route) {
+function loadAllSections() {
   const app = document.getElementById('app');
-  // Cargar navbar siempre
+  // Cargar navbar
   fetch('components/navbar.html')
     .then(res => res.text())
     .then(navbarHtml => {
-      // Cargar el componente de la ruta
-      const componentPath = routes[route] || routes['#portada'];
-      fetch(componentPath)
-        .then(res => res.text())
-        .then(componentHtml => {
-          // Cargar footer siempre
+      // Cargar todas las secciones en orden
+      Promise.all(sectionComponents.map(path => fetch(path).then(r => r.text())))
+        .then(sectionsHtml => {
+          // Cargar footer
           fetch('components/footer.html')
             .then(res => res.text())
             .then(footerHtml => {
-              app.innerHTML = navbarHtml + componentHtml + footerHtml;
-              // Inicializar lógica de la sección si existe
-              if (window.sectionInit) window.sectionInit(route);
+              app.innerHTML = navbarHtml + sectionsHtml.join('\n') + footerHtml;
+              if (window.sectionInit) window.sectionInit();
             });
         });
     });
 }
 
-function handleRouteChange() {
-  loadComponent(window.location.hash || '#portada');
-}
-
-window.addEventListener('hashchange', handleRouteChange);
-window.addEventListener('DOMContentLoaded', handleRouteChange); 
+window.addEventListener('DOMContentLoaded', loadAllSections); 

@@ -1,37 +1,14 @@
 // js/main.js
 
-// Aquí puedes poner lógica global, como scroll top, etc.
-window.sectionInit = function(route) {
-  // Cargar el script de la sección si no está cargado
-  const sectionScripts = {
-    '#portada': 'js/portada.js',
-    '#institucion': 'js/institucion.js',
-    '#vida-estudiantil': 'js/vida-estudiantil.js',
-    '#titulos': 'js/titulos.js',
-    '#contactos': 'js/contacto.js',
-    '#aula-virtual': 'js/aula-virtual.js',
-  };
-  const scriptUrl = sectionScripts[route] || sectionScripts['#portada'];
-  if (!document.querySelector('script[src="' + scriptUrl + '"]')) {
-    const script = document.createElement('script');
-    script.src = scriptUrl;
-    script.onload = function() {
-      if (route === '#portada' && window.initPortada) window.initPortada();
-      else if (route === '#institucion' && window.initInstitucion) window.initInstitucion();
-      else if (route === '#vida-estudiantil' && window.initVidaEstudiantil) window.initVidaEstudiantil();
-      else if (route === '#titulos' && window.initTitulos) window.initTitulos();
-      else if (route === '#contactos' && window.initContacto) window.initContacto();
-      else if (route === '#aula-virtual' && window.initAulaVirtual) window.initAulaVirtual();
-    };
-    document.body.appendChild(script);
-  } else {
-    if (route === '#portada' && window.initPortada) window.initPortada();
-    else if (route === '#institucion' && window.initInstitucion) window.initInstitucion();
-    else if (route === '#vida-estudiantil' && window.initVidaEstudiantil) window.initVidaEstudiantil();
-    else if (route === '#titulos' && window.initTitulos) window.initTitulos();
-    else if (route === '#contactos' && window.initContacto) window.initContacto();
-    else if (route === '#aula-virtual' && window.initAulaVirtual) window.initAulaVirtual();
-  }
+// Lógica global para scroll top y cualquier inicialización general
+window.sectionInit = function() {
+  // Inicializar lógica de cada sección si existe
+  if (window.initPortada) window.initPortada();
+  if (window.initInstitucion) window.initInstitucion();
+  if (window.initVidaEstudiantil) window.initVidaEstudiantil();
+  if (window.initTitulos) window.initTitulos();
+  if (window.initContacto) window.initContacto();
+  if (window.initAulaVirtual) window.initAulaVirtual();
 
   // Botón scroll top
   let btnScrollTop = document.getElementById('btnScrollTop');
@@ -57,7 +34,6 @@ window.sectionInit = function(route) {
   }
   btnScrollTop.onclick = function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    window.location.hash = 'portada';
   };
   window.onscroll = function() {
     if (window.scrollY > 300) {
@@ -66,4 +42,7 @@ window.sectionInit = function(route) {
       btnScrollTop.style.display = 'none';
     }
   };
-}; 
+};
+
+// Scroll suave por CSS (opcional, pero recomendado)
+document.documentElement.style.scrollBehavior = 'smooth'; 
