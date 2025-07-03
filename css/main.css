@@ -1,0 +1,58 @@
+body {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #f3f4ff 0%, #d8d2e9 100%);
+  font-family: "Roboto", sans-serif;
+}
+section {
+  scroll-margin-top: 80px;
+}
+.navbar {
+  min-height: 90px;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.navbar-brand {
+  font-weight: 600;
+  font-size: 1.75rem;
+}
+.nav-link {
+  font-weight: 500;
+}
+.nav-link.active, .nav-link:focus {
+  color: #2196f3 !important;
+  font-weight: 700;
+}
+#heroCarousel {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.12);
+}
+.carousel-item img {
+  object-fit: cover;
+  width: 100%;
+  height: 680px;
+}
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.65);
+}
+.hero-overlay h1 {
+  font-size: 2.65rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+@media (max-width: 992px) {
+  .carousel-item img {
+    height: 460px;
+  }
+  .hero-overlay h1 {
+    font-size: 1.8rem;
+  }
+  section {
+    min-height: 60vh !important;
+  }
+} 
