@@ -10,6 +10,37 @@
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="css/main.css" rel="stylesheet" />
+  <style>
+    /* Efecto hover para las tarjetas de misión, visión y valores */
+    .institucion-card-hover {
+      transition: transform 0.2s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
+    }
+    .institucion-card-hover:hover {
+      transform: translateY(-12px) scale(1.04);
+      box-shadow: 0 8px 32px rgba(33, 150, 243, 0.18), 0 2px 8px rgba(0,0,0,0.08);
+      z-index: 2;
+    }
+    /* Efecto hover para los enlaces del navbar */
+    .navbar-nav .nav-link {
+      transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s;
+    }
+    .navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
+      transform: translateY(-5px) scale(1.06);
+      box-shadow: 0 4px 16px rgba(33, 150, 243, 0.10);
+      z-index: 2;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+    }
+    /* Efecto para el botón de Aula virtual en el navbar */
+    .navbar-nav .btn-warning {
+      transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s;
+    }
+    .navbar-nav .btn-warning:hover, .navbar-nav .btn-warning:focus {
+      transform: translateY(-5px) scale(1.06);
+      box-shadow: 0 4px 16px rgba(255,193,7,0.18);
+      z-index: 2;
+    }
+  </style>
 </head>
 <body>
   <div id="app"></div>

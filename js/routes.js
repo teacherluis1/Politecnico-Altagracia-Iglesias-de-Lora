@@ -4,7 +4,7 @@ const sectionComponents = [
   'components/vida-estudiantil.html',
   'components/titulos.html',
   'components/contacto.html',
-  'components/aula-virtual.html',
+  // 'components/aula-virtual.html', // Eliminado para que no se cargue en la portada
 ];
 
 function loadAllSections() {
