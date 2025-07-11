@@ -1,48 +1,83 @@
-// js/main.js
+/* ============================================================
+   js/main.js  •  IPAIL – lógica global + autocierre de navbar
+   ============================================================ */
 
-// Lógica global para scroll top y cualquier inicialización general
-window.sectionInit = function() {
-  // Inicializar lógica de cada sección si existe
-  if (window.initPortada) window.initPortada();
-  if (window.initInstitucion) window.initInstitucion();
-  if (window.initVidaEstudiantil) window.initVidaEstudiantil();
-  if (window.initTitulos) window.initTitulos();
-  if (window.initContacto) window.initContacto();
-  if (window.initAulaVirtual) window.initAulaVirtual();
+document.documentElement.style.scrollBehavior = 'smooth';
 
-  // Botón scroll top
-  let btnScrollTop = document.getElementById('btnScrollTop');
-  if (!btnScrollTop) {
-    btnScrollTop = document.createElement('button');
-    btnScrollTop.id = 'btnScrollTop';
-    btnScrollTop.title = 'Volver arriba';
-    btnScrollTop.style.display = 'none';
-    btnScrollTop.style.position = 'fixed';
-    btnScrollTop.style.bottom = '32px';
-    btnScrollTop.style.right = '32px';
-    btnScrollTop.style.zIndex = '9999';
-    btnScrollTop.style.background = '#2196f3';
-    btnScrollTop.style.color = '#fff';
-    btnScrollTop.style.border = 'none';
-    btnScrollTop.style.borderRadius = '50%';
-    btnScrollTop.style.width = '54px';
-    btnScrollTop.style.height = '54px';
-    btnScrollTop.style.boxShadow = '0 2px 8px rgba(0,0,0,0.18)';
-    btnScrollTop.style.fontSize = '2rem';
-    btnScrollTop.innerHTML = '<i class="bi bi-arrow-up"></i>';
-    document.body.appendChild(btnScrollTop);
+// ---------- 1) Inicializadores por sección ----------
+window.sectionInit = function () {
+  window.initPortada?.();
+  window.initInstitucion?.();
+  window.initVidaEstudiantil?.();
+  window.initTitulos?.();
+  window.initContacto?.();
+  window.initAulaVirtual?.();
+
+  // Botón «Volver arriba» (una sola vez)
+  let btn = document.getElementById('btnScrollTop');
+  if (!btn) {
+    btn = document.createElement('button');
+    btn.id = 'btnScrollTop';
+    btn.title = 'Volver arriba';
+    btn.innerHTML = '<i class="bi bi-arrow-up"></i>';
+    btn.style.cssText = `
+      display:none;position:fixed;bottom:32px;right:32px;z-index:9999;
+      background:#2196f3;color:#fff;border:none;border-radius:50%;
+      width:54px;height:54px;font-size:2rem;box-shadow:0 2px 8px rgba(0,0,0,.18);`;
+    document.body.appendChild(btn);
   }
-  btnScrollTop.onclick = function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-  window.onscroll = function() {
-    if (window.scrollY > 300) {
-      btnScrollTop.style.display = 'block';
-    } else {
-      btnScrollTop.style.display = 'none';
-    }
-  };
+  btn.onclick  = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.onscroll = () => (btn.style.display = window.scrollY > 300 ? 'block' : 'none');
 };
 
-// Scroll suave por CSS (opcional, pero recomendado)
-document.documentElement.style.scrollBehavior = 'smooth'; 
+// ---------- 2) Autocerrar el menú en móviles (< 992 px) ----------
+function initAutoCloseNavbar () {
+  const navCollapse = document.getElementById('navbarNav');
+  if (!navCollapse) return;
+
+  document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth < 992 && navCollapse.classList.contains('show')) {
+        const bsCollapse =
+          bootstrap.Collapse.getInstance(navCollapse) ??
+          new bootstrap.Collapse(navCollapse, { toggle: false });
+        bsCollapse.hide();           // cierra el off-canvas
+        /* ✔️  NO se hace preventDefault, así que el
+               ancla #seccion desplaza la página normalmente */
+      }
+    });
+  });
+}
+
+// ---------- 3) Carga dinámica de componentes ----------
+const sectionComponents = [
+  'components/portada.html',
+  'components/institucion.html',
+  'components/vida-estudiantil.html',
+  'components/titulos.html',
+  'components/contacto.html'
+];
+
+function loadAllSections () {
+  const app = document.getElementById('app');
+
+  fetch('components/navbar.html').then(r => r.text()).then(navbar =>
+    Promise.all(sectionComponents.map(p => fetch(p).then(r => r.text())))
+      .then(sections =>
+        fetch('components/footer.html').then(r => r.text()).then(footer => {
+          app.innerHTML = navbar + sections.join('\n') + footer;
+          window.sectionInit();
+          initAutoCloseNavbar();
+        })));
+}
+
+window.addEventListener('DOMContentLoaded', loadAllSections);
+
+// ---------- 4) Stubs vacíos por si faltan ----------
+window.initPortada         ??= () => {};
+window.initInstitucion     ??= () => {};
+window.initVidaEstudiantil ??= () => {};
+window.initTitulos         ??= () => {};
+window.initContacto        ??= () => {};
+window.initAulaVirtual     ??= () => {};
+/* ============================================================ */
