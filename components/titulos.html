@@ -1,103 +1,112 @@
+<!-- ================================================================
+     TÍTULOS PROFESIONALES
+     Reemplaza el bloque completo de la sección #titulos por este
+===================================================================-->
 <section id="titulos" class="pt-5 pb-3" style="background:#f3f4ff;">
   <div class="container">
-    <h2 class="mb-4 text-center" style="font-size:3rem;color:#2196f3;font-weight:700;">
+
+    <!-- Encabezado -->
+    <h2 class="mb-4 text-center"
+        style="font-size:2rem;color:#0d6efd;font-weight:700;">
       Títulos profesionales
     </h2>
 
-    <!-- === Tabs ========================================================= -->
-    <div class="d-flex justify-content-center mb-4">
-      <ul class="nav nav-tabs border-0" id="titulosTabs" role="tablist">
-        <li class="nav-item"><button class="nav-link active fw-semibold"
-            id="info-tab"  data-bs-toggle="tab" data-bs-target="#info"
-            type="button" role="tab">Informática y Comunicaciones</button></li>
-        <li class="nav-item"><button class="nav-link fw-semibold"
-            id="gestion-tab" data-bs-toggle="tab" data-bs-target="#gestion"
-            type="button" role="tab">Administración y Comercio</button></li>
-        <li class="nav-item"><button class="nav-link fw-semibold"
-            id="salud-tab" data-bs-toggle="tab" data-bs-target="#salud"
-            type="button" role="tab">Salud</button></li>
-      </ul>
-    </div>
+    <!-- Tabs --------------------------------------------------------- -->
+    <ul class="nav nav-tabs justify-content-center border-0 mb-4"
+        id="titulosTabs" role="tablist">
+      <li class="nav-item">
+        <button class="nav-link active fw-semibold"
+                id="info-tab" data-bs-toggle="tab" data-bs-target="#info"
+                type="button" role="tab">
+          Informática y Comunicaciones
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link fw-semibold"
+                id="gestion-tab" data-bs-toggle="tab" data-bs-target="#gestion"
+                type="button" role="tab">
+          Administración y Comercio
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link fw-semibold"
+                id="salud-tab" data-bs-toggle="tab" data-bs-target="#salud"
+                type="button" role="tab">
+          Salud
+        </button>
+      </li>
+    </ul>
 
-    <!-- === Contenido de cada tab ======================================== -->
+    <!-- Contenido de cada tab ---------------------------------------- -->
     <div class="tab-content text-center" id="titulosTabsContent">
 
-      <!-- ▸ INFORMÁTICA --------------------------------------------------- -->
+      <!-- ▸ INFORMÁTICA -->
       <div class="tab-pane fade show active" id="info" role="tabpanel">
-        <h3 class="text-primary mb-4 fw-bold" style="font-size:2rem;">
+        <h3 class="text-primary mb-3 fw-bold fs-5">
           Desarrollo y Administración de Aplicaciones Informáticas
         </h3>
-        <div class="row justify-content-center g-4">
-          <div class="col-12 col-md-4">
+        <div class="row row-cols-3 g-2 g-md-4 justify-content-center">
+          <div class="col">
             <div class="titulos-img-wrapper">
-              <img src="fotos/informatica1.jpeg" class="titulos-img"
-                   alt="Informática 1">
+              <img src="fotos/informatica1.jpeg" class="titulos-img" alt="Informática 1">
             </div>
           </div>
-          <div class="col-12 col-md-4">
+          <div class="col">
             <div class="titulos-img-wrapper">
-              <img src="fotos/informatica2.jpeg" class="titulos-img"
-                   alt="Informática 2">
+              <img src="fotos/informatica2.jpeg" class="titulos-img" alt="Informática 2">
             </div>
           </div>
-          <div class="col-12 col-md-4">
+          <div class="col">
             <div class="titulos-img-wrapper">
-              <img src="fotos/informatica3.jpeg" class="titulos-img"
-                   alt="Informática 3">
+              <img src="fotos/informatica3.jpeg" class="titulos-img" alt="Informática 3">
             </div>
           </div>
         </div>
       </div>
 
-      <!-- ▸ GESTIÓN ------------------------------------------------------- -->
+      <!-- ▸ GESTIÓN -->
       <div class="tab-pane fade" id="gestion" role="tabpanel">
-        <h3 class="text-primary mb-4 fw-bold" style="font-size:2rem;">
+        <h3 class="text-primary mb-3 fw-bold fs-5">
           Gestión Administrativa y Tributaria
         </h3>
-        <div class="row justify-content-center g-4">
-          <div class="col-12 col-md-4">
+        <div class="row row-cols-3 g-2 g-md-4 justify-content-center">
+          <div class="col">
             <div class="titulos-img-wrapper">
-              <img src="fotos/gestion1.jpeg" class="titulos-img"
-                   alt="Gestión 1">
+              <img src="fotos/gestion1.jpeg" class="titulos-img" alt="Gestión 1">
             </div>
           </div>
-          <div class="col-12 col-md-4">
+          <div class="col">
             <div class="titulos-img-wrapper">
-              <img src="fotos/gestion2.jpeg" class="titulos-img"
-                   alt="Gestión 2">
+              <img src="fotos/gestion2.jpeg" class="titulos-img" alt="Gestión 2">
             </div>
           </div>
-          <div class="col-12 col-md-4">
+          <div class="col">
             <div class="titulos-img-wrapper">
-              <img src="fotos/gestion3.jpeg" class="titulos-img"
-                   alt="Gestión 3">
+              <img src="fotos/gestion3.jpeg" class="titulos-img" alt="Gestión 3">
             </div>
           </div>
         </div>
       </div>
 
-      <!-- ▸ SALUD --------------------------------------------------------- -->
+      <!-- ▸ SALUD -->
       <div class="tab-pane fade" id="salud" role="tabpanel">
-        <h3 class="text-primary mb-4 fw-bold" style="font-size:2rem;">
+        <h3 class="text-primary mb-3 fw-bold fs-5">
           Cuidados de Enfermería y Promoción de la Salud
         </h3>
-        <div class="row justify-content-center g-4">
-          <div class="col-12 col-md-4">
+        <div class="row row-cols-3 g-2 g-md-4 justify-content-center">
+          <div class="col">
             <div class="titulos-img-wrapper">
-              <img src="fotos/nursing1.jpeg" class="titulos-img"
-                   alt="Salud 1">
+              <img src="fotos/nursing1.jpeg" class="titulos-img" alt="Salud 1">
             </div>
           </div>
-          <div class="col-12 col-md-4">
+          <div class="col">
             <div class="titulos-img-wrapper">
-              <img src="fotos/nursing2.jpeg" class="titulos-img"
-                   alt="Salud 2">
+              <img src="fotos/nursing2.jpeg" class="titulos-img" alt="Salud 2">
             </div>
           </div>
-          <div class="col-12 col-md-4">
+          <div class="col">
             <div class="titulos-img-wrapper">
-              <img src="fotos/nursing3.jpeg" class="titulos-img"
-                   alt="Salud 3">
+              <img src="fotos/nursing3.jpeg" class="titulos-img" alt="Salud 3">
             </div>
           </div>
         </div>
