@@ -19,23 +19,31 @@
 
       <!-- FORMULARIO -->
       <div class="col-lg-7">
-        <form action="https://formspree.io/f/fbebwlqa" method="POST"
+        <form id="contact-form"
+              action="https://formspree.io/f/mgvygrpv" 
+              method="POST"
               class="contact-form h-100 p-5 rounded-4 shadow-sm bg-white">
           <h3 class="fw-semibold text-primary mb-4">Formulario de Contacto</h3>
 
           <div class="row g-3">
             <div class="col-md-6">
-              <input type="text" name="name" class="form-control" placeholder="Nombre" required>
+              <input type="text"  name="name"    class="form-control" placeholder="Nombre"             required>
             </div>
             <div class="col-md-6">
               <input type="email" name="_replyto" class="form-control" placeholder="Correo electrónico" required>
             </div>
             <div class="col-12">
-              <input type="tel" name="phone" class="form-control" placeholder="Número de teléfono">
+              <input type="tel"   name="phone"   class="form-control" placeholder="Número de teléfono">
             </div>
             <div class="col-12">
-              <textarea rows="4" name="message" class="form-control" placeholder="Mensaje" required></textarea>
+              <textarea rows="4"  name="message" class="form-control" placeholder="Mensaje" required></textarea>
             </div>
+
+            <!-- Opcional: asunto personalizado y página de gracias -->
+            <input type="hidden" name="_subject" value="Nuevo mensaje desde la web IPAIL">
+            <!-- Redirige a /gracias.html tras el envío (solo en plan Pro) -->
+            <!-- <input type="hidden" name="_next" value="https://ipail.edu.do/gracias.html"> -->
+
             <div class="col-12">
               <button class="btn btn-primary w-100 fw-semibold py-2">Enviar</button>
             </div>
@@ -46,3 +54,25 @@
     </div>
   </div>
 </section>
+
+<!-- Pequeño JS para mostrar un alert de éxito sin recargar -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const res  = await fetch(form.action, {
+      method: 'POST',
+      body:   data,
+      headers:{ 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      alert('¡Gracias! Tu mensaje se envió correctamente.');
+      form.reset();
+    } else {
+      alert('Ups… ocurrió un problema. Intenta de nuevo.');
+    }
+  });
+});
+</script>
