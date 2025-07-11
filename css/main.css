@@ -136,3 +136,49 @@ section {
 .titulos-img:hover{
   transform: scale(1.08);
 }
+#titulos {
+  padding-bottom: 14rem; /* el espacio que quieras */
+}
+
+/* —— Contacto —— */
+.contact-card{
+  background: linear-gradient(135deg,#e9ecff 0%,#d6ddff 100%);
+  transition: box-shadow .25s, transform .25s;
+}
+.contact-card:hover{
+  transform: translateY(-6px);
+  box-shadow:0 12px 32px rgba(33,150,243,.15);
+}
+
+.contact-form{
+  transition: box-shadow .25s, transform .25s;
+}
+.contact-form:hover{
+  transform: translateY(-6px);
+  box-shadow:0 12px 32px rgba(0,0,0,.08);
+}
+
+/* Foco suave en campos */
+.contact-form .form-control:focus{
+  border-color:#2196f3;
+  box-shadow:0 0 0 .15rem rgba(33,150,243,.25);
+}
+
+/* Botón */
+.contact-form button{
+  border-radius:2rem;
+}
+
+/* Responsivo → espaciado vertical */
+@media (max-width: 991.98px){
+  #contactos .contact-card,
+  #contactos .contact-form{
+    border-radius:1.25rem;
+  }
+}
+#contactos {
+  min-height: 75vh;
+  padding-bottom: 6rem;
+}
+
+
