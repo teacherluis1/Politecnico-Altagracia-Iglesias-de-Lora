@@ -1,184 +1,186 @@
-html {
-  scroll-behavior: smooth;
+/* =============  MAIN.CSS COMPLETO ============= */
+html{
+  scroll-behavior:smooth;
 }
-body {
-  min-height: 100vh;
-  background: linear-gradient(to bottom, #f3f4ff 0%, #d8d2e9 100%);
-  font-family: "Roboto", sans-serif;
+body{
+  min-height:100vh;
+  background:linear-gradient(to bottom,#f3f4ff 0%,#d8d2e9 100%);
+  font-family:"Roboto",sans-serif;
 }
-section {
-  scroll-margin-top: 80px;
+section{scroll-margin-top:80px;}
+/* ----------  NAVBAR  ---------- */
+.navbar{
+  min-height:90px;
+  padding-top:1.5rem;
+  padding-bottom:1.5rem;
 }
-.navbar {
-  min-height: 90px;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+.navbar-brand{font-weight:600;font-size:1.75rem;}
+.nav-link{font-weight:500;}
+.nav-link.active,.nav-link:focus{
+  color:#2196f3!important;
+  font-weight:700;
 }
-.navbar-brand {
-  font-weight: 600;
-  font-size: 1.75rem;
+/* Hover links */
+.navbar-nav .nav-link{
+  transition:transform .18s cubic-bezier(.4,2,.6,1),box-shadow .18s;
 }
-.nav-link {
-  font-weight: 500;
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus{
+  transform:translateY(-5px) scale(1.06);
+  box-shadow:0 4px 16px rgba(33,150,243,.10);
+  z-index:2;
+  background:rgba(255,255,255,.08);
+  border-radius:8px;
 }
-.nav-link.active, .nav-link:focus {
-  color: #2196f3 !important;
-  font-weight: 700;
+/* Hover botón Aula virtual */
+.navbar-nav .btn-warning{
+  transition:transform .18s cubic-bezier(.4,2,.6,1),box-shadow .18s;
 }
-#heroCarousel {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.12);
+.navbar-nav .btn-warning:hover,
+.navbar-nav .btn-warning:focus{
+  transform:translateY(-5px) scale(1.06);
+  box-shadow:0 4px 16px rgba(255,193,7,.18);
+  z-index:2;
 }
-.carousel-item img {
-  object-fit: cover;
-  width: 100%;
-  height: 680px;
+/* ----------  HERO + PORTADA  ---------- */
+#heroCarousel{
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 0 30px rgba(0,0,0,.12);
 }
-#portada img[alt="Logo IPAIL"] {
-  position: absolute !important;
-  top: 10px !important;
-  left: 5px !important;
-  width: 120px !important;
-  height: 120px !important;
-  z-index: 30 !important;
-  opacity: 0.97 !important;
-  pointer-events: none;
+.carousel-item img{
+  object-fit:cover;
+  width:100%;
+  height:680px;       /* ↓ Escalonado en media-queries */
 }
-.hero-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 25;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.65);
-  width: 100%;
-  pointer-events: none;
+#portada img[alt="Logo IPAIL"]{
+  position:absolute!important;
+  top:10px!important;
+  left:5px!important;
+  width:120px!important;
+  height:120px!important;
+  z-index:30!important;
+  opacity:.97!important;
+  pointer-events:none;
 }
-.hero-overlay h1, .hero-overlay a {
-  pointer-events: auto;
+.hero-overlay{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  z-index:25;
+  text-shadow:0 0 10px rgba(0,0,0,.65);
+  width:100%;
+  pointer-events:none;
 }
-.hero-overlay h1 {
-  font-size: 2.65rem;
-  font-weight: 700;
-  line-height: 1.2;
+.hero-overlay h1,
+.hero-overlay a{pointer-events:auto;}
+.hero-overlay h1{
+  font-size:2.65rem;
+  font-weight:700;
+  line-height:1.2;
 }
-@media (max-width: 992px) {
-  .carousel-item img {
-    height: 460px;
-  }
-  .hero-overlay h1 {
-    font-size: 1.8rem;
-  }
-  section {
-    min-height: 60vh !important;
-  }
-  
-  
-} 
-/* Galería Vida Estudiantil */
-.gallery-img-wrapper {
-  aspect-ratio: 1/1;
-  width: 100%;
-  background: #e9ecef;
-  border-radius: 18px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 12px rgba(33, 150, 243, 0.08), 0 1.5px 6px rgba(0,0,0,0.06);
-  transition: box-shadow 0.18s, transform 0.18s;
+/* ----------  INSTITUCIÓN CARDS ---------- */
+.institucion-card-hover{
+  transition:transform .2s cubic-bezier(.4,2,.6,1),box-shadow .2s;
 }
-.gallery-img-wrapper:hover {
-  box-shadow: 0 6px 24px rgba(33, 150, 243, 0.18), 0 4px 16px rgba(0,0,0,0.10);
-  transform: scale(1.04);
+.institucion-card-hover:hover{
+  transform:translateY(-12px) scale(1.04);
+  box-shadow:0 8px 32px rgba(33,150,243,.18),0 2px 8px rgba(0,0,0,.08);
+  z-index:2;
 }
-.gallery-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 18px;
-  transition: transform 0.18s;
+/* ----------  GALERÍA VIDA ESTUDIANTIL ---------- */
+.gallery-img-wrapper{
+  aspect-ratio:1/1;
+  width:100%;
+  background:#e9ecef;
+  border-radius:18px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 2px 12px rgba(33,150,243,.08),0 1.5px 6px rgba(0,0,0,.06);
+  transition:box-shadow .18s,transform .18s;
 }
-.gallery-img:hover {
-  transform: scale(1.08);
-} 
-/* === Efecto hover para las fotos de Títulos profesionales === */
+.gallery-img-wrapper:hover{
+  box-shadow:0 6px 24px rgba(33,150,243,.18),0 4px 16px rgba(0,0,0,.10);
+  transform:scale(1.04);
+}
+.gallery-img{
+  width:100%;height:100%;
+  object-fit:cover;
+  border-radius:18px;
+  transition:transform .18s;
+}
+.gallery-img:hover{transform:scale(1.08);}
+/* ----------  TÍTULOS PROFESIONALES ---------- */
 .titulos-img-wrapper{
-  /* mismas “bondades” que la galería principal ─ sin composes ─ */
-  aspect-ratio: 1/1;                         /* cuadrado perfecto   */
-  width: 100%;
-  max-width: 250px;                          /* no más de 180 px    */
-  margin: auto;                              /* centrado en columna */
-  background: #e9ecef;
-  border-radius: 18px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 12px rgba(33,150,243,.08),
-              0 1.5px 6px rgba(0,0,0,.06);
-  transition: box-shadow .18s, transform .18s;
+  aspect-ratio:1/1;
+  width:100%;max-width:250px;
+  margin:auto;
+  background:#e9ecef;
+  border-radius:18px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 12px rgba(33,150,243,.08),0 1.5px 6px rgba(0,0,0,.06);
+  transition:box-shadow .18s,transform .18s;
 }
 .titulos-img-wrapper:hover{
-  box-shadow: 0 6px 24px rgba(33,150,243,.18),
-              0 4px 16px rgba(0,0,0,.10);
-  transform: scale(1.04);
+  box-shadow:0 6px 24px rgba(33,150,243,.18),0 4px 16px rgba(0,0,0,.10);
+  transform:scale(1.04);
 }
-
 .titulos-img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 18px;
-  transition: transform .18s;
+  width:100%;height:100%;
+  object-fit:cover;border-radius:18px;
+  transition:transform .18s;
 }
-.titulos-img:hover{
-  transform: scale(1.08);
-}
-#titulos {
-  padding-bottom: 14rem; /* el espacio que quieras */
-}
-
-/* —— Contacto —— */
+.titulos-img:hover{transform:scale(1.08);}
+#titulos{padding-bottom:14rem;} /* → XS reducido en media-query */
+/* ----------  CONTACTO ---------- */
 .contact-card{
-  background: linear-gradient(135deg,#e9ecff 0%,#d6ddff 100%);
-  transition: box-shadow .25s, transform .25s;
+  background:linear-gradient(135deg,#e9ecff 0%,#d6ddff 100%);
+  transition:box-shadow .25s,transform .25s;
 }
 .contact-card:hover{
-  transform: translateY(-6px);
+  transform:translateY(-6px);
   box-shadow:0 12px 32px rgba(33,150,243,.15);
 }
-
 .contact-form{
-  transition: box-shadow .25s, transform .25s;
+  transition:box-shadow .25s,transform .25s;
 }
 .contact-form:hover{
-  transform: translateY(-6px);
+  transform:translateY(-6px);
   box-shadow:0 12px 32px rgba(0,0,0,.08);
 }
-
-/* Foco suave en campos */
 .contact-form .form-control:focus{
   border-color:#2196f3;
   box-shadow:0 0 0 .15rem rgba(33,150,243,.25);
 }
-
-/* Botón */
-.contact-form button{
-  border-radius:2rem;
+.contact-form button{border-radius:2rem;}
+#contactos{min-height:75vh;padding-bottom:6rem;}
+/* ----------  MEDIA-QUERIES ---------- */
+/* ≤ 992 px (bootstrap lg- breakpoint) */
+@media (max-width:992px){
+  .carousel-item img{height:460px;}
+  .hero-overlay h1{font-size:1.8rem;}
+  section{min-height:60vh!important;}
 }
-
-/* Responsivo → espaciado vertical */
-@media (max-width: 991.98px){
-  #contactos .contact-card,
-  #contactos .contact-form{
-    border-radius:1.25rem;
+/* ≤ 768 px (bootstrap md- breakpoint) */
+@media (max-width:768px){
+  .navbar{min-height:72px;padding-top:1rem;padding-bottom:1rem;}
+  .navbar-brand{font-size:1.35rem;}
+}
+/* ≤ 576 px (bootstrap sm- breakpoint) */
+@media (max-width:576px){
+  /* Carrusel y hero */
+  .carousel-item img{height:280px;}
+  #heroCarousel{border-radius:8px;}
+  .hero-overlay h1{font-size:1.4rem;}
+  #portada img[alt="Logo IPAIL"]{
+    width:70px;height:70px;top:6px;left:4px;
   }
+  /* Secciones – evitar huecos enormes */
+  section{min-height:auto!important;}
+  #titulos{padding-bottom:8rem;}
+  /* Contacto */
+  .contact-card,.contact-form{border-radius:1rem;}
 }
-#contactos {
-  min-height: 75vh;
-  padding-bottom: 6rem;
-}
-
-
+/*  ============================================ */
