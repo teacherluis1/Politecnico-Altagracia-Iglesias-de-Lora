@@ -103,3 +103,36 @@ section {
 .gallery-img:hover {
   transform: scale(1.08);
 } 
+/* === Efecto hover para las fotos de Títulos profesionales === */
+.titulos-img-wrapper{
+  /* mismas “bondades” que la galería principal ─ sin composes ─ */
+  aspect-ratio: 1/1;                         /* cuadrado perfecto   */
+  width: 100%;
+  max-width: 250px;                          /* no más de 180 px    */
+  margin: auto;                              /* centrado en columna */
+  background: #e9ecef;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(33,150,243,.08),
+              0 1.5px 6px rgba(0,0,0,.06);
+  transition: box-shadow .18s, transform .18s;
+}
+.titulos-img-wrapper:hover{
+  box-shadow: 0 6px 24px rgba(33,150,243,.18),
+              0 4px 16px rgba(0,0,0,.10);
+  transform: scale(1.04);
+}
+
+.titulos-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  transition: transform .18s;
+}
+.titulos-img:hover{
+  transform: scale(1.08);
+}

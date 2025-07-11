@@ -1,62 +1,108 @@
 <section id="titulos" class="pt-5 pb-3" style="background:#f3f4ff;">
   <div class="container">
-    <h2 class="mb-4 text-center" style="font-size:3rem; color:#2196f3; font-weight:700;">Títulos profesionales</h2>
+    <h2 class="mb-4 text-center" style="font-size:3rem;color:#2196f3;font-weight:700;">
+      Títulos profesionales
+    </h2>
+
+    <!-- === Tabs ========================================================= -->
     <div class="d-flex justify-content-center mb-4">
       <ul class="nav nav-tabs border-0" id="titulosTabs" role="tablist">
-        <li class="nav-item" role="presentation">
-          <button class="nav-link active fw-semibold" id="info-tab" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab" aria-controls="info" aria-selected="true">Informática y Comunicaciones</button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link fw-semibold" id="gestion-tab" data-bs-toggle="tab" data-bs-target="#gestion" type="button" role="tab" aria-controls="gestion" aria-selected="false">Administración y Comercio</button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link fw-semibold" id="salud-tab" data-bs-toggle="tab" data-bs-target="#salud" type="button" role="tab" aria-controls="salud" aria-selected="false">Salud</button>
-        </li>
+        <li class="nav-item"><button class="nav-link active fw-semibold"
+            id="info-tab"  data-bs-toggle="tab" data-bs-target="#info"
+            type="button" role="tab">Informática y Comunicaciones</button></li>
+        <li class="nav-item"><button class="nav-link fw-semibold"
+            id="gestion-tab" data-bs-toggle="tab" data-bs-target="#gestion"
+            type="button" role="tab">Administración y Comercio</button></li>
+        <li class="nav-item"><button class="nav-link fw-semibold"
+            id="salud-tab" data-bs-toggle="tab" data-bs-target="#salud"
+            type="button" role="tab">Salud</button></li>
       </ul>
     </div>
+
+    <!-- === Contenido de cada tab ======================================== -->
     <div class="tab-content text-center" id="titulosTabsContent">
-      <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
-        <h3 class="text-primary mb-4 fw-bold" style="font-size:2rem;">Desarrollo y Administración de Aplicaciones Informáticas</h3>
+
+      <!-- ▸ INFORMÁTICA --------------------------------------------------- -->
+      <div class="tab-pane fade show active" id="info" role="tabpanel">
+        <h3 class="text-primary mb-4 fw-bold" style="font-size:2rem;">
+          Desarrollo y Administración de Aplicaciones Informáticas
+        </h3>
         <div class="row justify-content-center g-4">
-          <div class="col-12 col-md-4 d-flex justify-content-center">
-            <img src="fotos/informatica1.jpeg" alt="Informática 1" class="img-fluid rounded-4" style="width:180px; height:180px; object-fit:cover;" />
+          <div class="col-12 col-md-4">
+            <div class="titulos-img-wrapper">
+              <img src="fotos/informatica1.jpeg" class="titulos-img"
+                   alt="Informática 1">
+            </div>
           </div>
-          <div class="col-12 col-md-4 d-flex justify-content-center">
-            <img src="fotos/informatica2.jpeg" alt="Informática 2" class="img-fluid rounded-4" style="width:180px; height:180px; object-fit:cover;" />
+          <div class="col-12 col-md-4">
+            <div class="titulos-img-wrapper">
+              <img src="fotos/informatica2.jpeg" class="titulos-img"
+                   alt="Informática 2">
+            </div>
           </div>
-          <div class="col-12 col-md-4 d-flex justify-content-center">
-            <img src="fotos/informatica3.jpeg" alt="Informática 3" class="img-fluid rounded-4" style="width:180px; height:180px; object-fit:cover;" />
+          <div class="col-12 col-md-4">
+            <div class="titulos-img-wrapper">
+              <img src="fotos/informatica3.jpeg" class="titulos-img"
+                   alt="Informática 3">
+            </div>
           </div>
         </div>
       </div>
-      <div class="tab-pane fade" id="gestion" role="tabpanel" aria-labelledby="gestion-tab">
-        <h3 class="text-primary mb-4 fw-bold" style="font-size:2rem;">Gestión Administrativa y Tributaria</h3>
+
+      <!-- ▸ GESTIÓN ------------------------------------------------------- -->
+      <div class="tab-pane fade" id="gestion" role="tabpanel">
+        <h3 class="text-primary mb-4 fw-bold" style="font-size:2rem;">
+          Gestión Administrativa y Tributaria
+        </h3>
         <div class="row justify-content-center g-4">
-          <div class="col-12 col-md-4 d-flex justify-content-center">
-            <img src="fotos/gestion1.jpeg" alt="Gestión 1" class="img-fluid rounded-4" style="width:180px; height:180px; object-fit:cover;" />
+          <div class="col-12 col-md-4">
+            <div class="titulos-img-wrapper">
+              <img src="fotos/gestion1.jpeg" class="titulos-img"
+                   alt="Gestión 1">
+            </div>
           </div>
-          <div class="col-12 col-md-4 d-flex justify-content-center">
-            <img src="fotos/gestion2.jpeg" alt="Gestión 2" class="img-fluid rounded-4" style="width:180px; height:180px; object-fit:cover;" />
+          <div class="col-12 col-md-4">
+            <div class="titulos-img-wrapper">
+              <img src="fotos/gestion2.jpeg" class="titulos-img"
+                   alt="Gestión 2">
+            </div>
           </div>
-          <div class="col-12 col-md-4 d-flex justify-content-center">
-            <img src="fotos/gestion3.jpeg" alt="Gestión 3" class="img-fluid rounded-4" style="width:180px; height:180px; object-fit:cover;" />
+          <div class="col-12 col-md-4">
+            <div class="titulos-img-wrapper">
+              <img src="fotos/gestion3.jpeg" class="titulos-img"
+                   alt="Gestión 3">
+            </div>
           </div>
         </div>
       </div>
-      <div class="tab-pane fade" id="salud" role="tabpanel" aria-labelledby="salud-tab">
-        <h3 class="text-primary mb-4 fw-bold" style="font-size:2rem;">Cuidados de Enfermería y Promoción de la Salud</h3>
+
+      <!-- ▸ SALUD --------------------------------------------------------- -->
+      <div class="tab-pane fade" id="salud" role="tabpanel">
+        <h3 class="text-primary mb-4 fw-bold" style="font-size:2rem;">
+          Cuidados de Enfermería y Promoción de la Salud
+        </h3>
         <div class="row justify-content-center g-4">
-          <div class="col-12 col-md-4 d-flex justify-content-center">
-            <img src="fotos/nursing1.jpeg" alt="Salud 1" class="img-fluid rounded-4" style="width:180px; height:180px; object-fit:cover;" />
+          <div class="col-12 col-md-4">
+            <div class="titulos-img-wrapper">
+              <img src="fotos/nursing1.jpeg" class="titulos-img"
+                   alt="Salud 1">
+            </div>
           </div>
-          <div class="col-12 col-md-4 d-flex justify-content-center">
-            <img src="fotos/nursing2.jpeg" alt="Salud 2" class="img-fluid rounded-4" style="width:180px; height:180px; object-fit:cover;" />
+          <div class="col-12 col-md-4">
+            <div class="titulos-img-wrapper">
+              <img src="fotos/nursing2.jpeg" class="titulos-img"
+                   alt="Salud 2">
+            </div>
           </div>
-          <div class="col-12 col-md-4 d-flex justify-content-center">
-            <img src="fotos/nursing3.jpeg" alt="Salud 3" class="img-fluid rounded-4" style="width:180px; height:180px; object-fit:cover;" />
+          <div class="col-12 col-md-4">
+            <div class="titulos-img-wrapper">
+              <img src="fotos/nursing3.jpeg" class="titulos-img"
+                   alt="Salud 3">
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section> 
+
+    </div><!-- /.tab-content -->
+  </div><!-- /.container -->
+</section>
